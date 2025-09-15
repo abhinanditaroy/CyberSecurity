@@ -1,0 +1,159 @@
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { Shield, ArrowRight, Target, BookOpen, BarChart3 } from "lucide-react";
+import heroImage from "@/assets/cyber-hero.jpg";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-2">
+              <div className="relative">
+                <Shield className="h-8 w-8 text-primary" />
+                <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full" />
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                SecureTrain
+              </span>
+            </div>
+            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Link to="/dashboard">
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+                  Secure Your Digital
+                  <span className="block bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                    Future Today
+                  </span>
+                </h1>
+                <p className="text-xl text-muted-foreground max-w-xl">
+                  Master cybersecurity through interactive training modules, real-world simulations, 
+                  and comprehensive progress tracking. Protect yourself and your organization.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25">
+                  <Link to="/dashboard">
+                    Start Learning
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" className="border-border/50 hover:bg-accent/50">
+                  Watch Demo
+                </Button>
+              </div>
+
+              {/* Feature highlights */}
+              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/30">
+                <div className="text-center space-y-2">
+                  <BookOpen className="h-8 w-8 text-primary mx-auto" />
+                  <div className="text-sm font-medium">Interactive Modules</div>
+                </div>
+                <div className="text-center space-y-2">
+                  <Target className="h-8 w-8 text-primary mx-auto" />
+                  <div className="text-sm font-medium">Phishing Simulations</div>
+                </div>
+                <div className="text-center space-y-2">
+                  <BarChart3 className="h-8 w-8 text-primary mx-auto" />
+                  <div className="text-sm font-medium">Progress Tracking</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-2xl blur-3xl" />
+              <img 
+                src={heroImage} 
+                alt="Cybersecurity training visualization with digital shield and network protection elements"
+                className="relative rounded-2xl shadow-2xl border border-border/20 w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 bg-gradient-to-b from-transparent to-primary/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Why Choose SecureTrain?</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our comprehensive platform combines cutting-edge training with real-world scenarios 
+              to keep you ahead of cyber threats.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Role-Based Learning",
+                description: "Customized training modules tailored to your specific role and responsibilities.",
+                icon: BookOpen,
+              },
+              {
+                title: "Real-World Simulations", 
+                description: "Practice defending against actual phishing attempts in a safe environment.",
+                icon: Target,
+              },
+              {
+                title: "Advanced Analytics",
+                description: "Track your progress and identify areas for improvement with detailed reports.",
+                icon: BarChart3,
+              }
+            ].map((feature, index) => (
+              <div 
+                key={index}
+                className="p-6 rounded-2xl bg-gradient-to-br from-card/50 to-card/80 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 group"
+              >
+                <div className="mb-4">
+                  <div className="inline-flex p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    <feature.icon className="h-6 w-6 text-primary" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
+            <h2 className="text-3xl font-bold mb-4">Ready to Strengthen Your Cyber Defense?</h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Join thousands of professionals who trust SecureTrain for their security training needs.
+            </p>
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25">
+              <Link to="/dashboard">
+                Start Your Journey
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Index;
