@@ -1,0 +1,1 @@
+Our app assists IT proffesionals to keep themselves and their work secured from anykinds of cyber threats that may come across their path. Our application would inform them about possible threats and provide them effective remedies for the same. Free live demo videos will also be provided along with anytime asistance. 
